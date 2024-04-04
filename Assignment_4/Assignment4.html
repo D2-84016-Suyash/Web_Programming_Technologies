@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body >
+    <center>
+        <h1><U>Calculator</U></h1>
+        <table >
+            <tr>
+                <td>
+                    number 1:
+                </td>
+                <td>
+                    <input type="text" id="num1">
+                </td>
+                <td>
+                    <div id="errorMessage1" style="color: red;"></div>
+                </td>
+            <tr>
+                <td>
+                    number 2:
+                </td>
+                <td>
+                    <input type="text" name="" id="num2">
+                </td>
+                <td>
+                    <div id="errorMessage2" style="color: red;"></div>
+                </td>
+            </tr>
+            </tr>
+            <tr>
+                <td>Result:</td>
+                <td>
+                    <div style="color: aliceblue;" id="result1"></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <td>
+                    <div><button onclick="add()">addition</button></div>
+                </td>
+                <td>
+                    <div><button onclick="sub()">sub</button></div>
+                </td>
+                <td>
+                    <div><button onclick="mul()">mul</button></div>
+                </td>
+                <td>
+                    <div><button onclick="div()">div</button></div>
+                </td>
+            </tr>
+        </table>
+       
+    </center>
+    <script>
+        function add() {
+            debugger;
+            var refTONum1 = document.getElementById("num1");
+            var refTONum2 = document.getElementById("num2");
+            var refToresult = document.getElementById("result1");
+
+            var xNUM = false;
+            var ynum = false;
+
+            var isXBoxEmpty = IsEmpty("num1", "errorMessage1", "X is required");
+            if (isXBoxEmpty == false) {
+                isXNumber = IsItNumber("num1", "errorMessage1", "X should be number");
+            }
+
+            var isYBoxEmpty = IsEmpty("num2", "errorMessage2", "y is required");
+            if (isYBoxEmpty == false) {
+                isYNumber = IsItNumber("num2", "errorMessage2", "y should be number");
+            }
+            if (isXNumber == true && isYNumber == true ) {
+                //alert("Do addition now!");
+
+                var xData = parseInt(refTONum1.value);
+                var yData = parseInt(refTONum2.value);
+
+                var result2 = xData + yData;
+                refToresult.innerText = result2;
+            } else {
+                refToresult.innerText = "";
+            }
+
+        }
+        function sub() {
+            debugger;
+            var refTONum1 = document.getElementById("num1");
+            var refTONum2 = document.getElementById("num2");
+            var refToresult = document.getElementById("result1");
+
+            var xNUM = false;
+            var ynum = false;
+
+            var isXBoxEmpty = IsEmpty("num1", "errorMessage1", "X is required");
+            if (isXBoxEmpty == false) {
+                isXNumber = IsItNumber("num1", "errorMessage1", "X should be number");
+            }
+
+            var isYBoxEmpty = IsEmpty("num2", "errorMessage2", "y is required");
+            if (isYBoxEmpty == false) {
+                isYNumber = IsItNumber("num2", "errorMessage2", "y should be number");
+            }
+            if (isXNumber == true && isYNumber == true ) {
+                //alert("Do addition now!");
+
+                var xData = parseInt(refTONum1.value);
+                var yData = parseInt(refTONum2.value);
+
+                var result2 = xData - yData;
+                refToresult.innerText = result2;
+            } else {
+                refToresult.innerText = "";
+            }
+
+        }
+        function mul() {
+            debugger;
+            var refTONum1 = document.getElementById("num1");
+            var refTONum2 = document.getElementById("num2");
+            var refToresult = document.getElementById("result1");
+
+            var xNUM = false;
+            var ynum = false;
+
+            var isXBoxEmpty = IsEmpty("num1", "errorMessage1", "X is required");
+            if (isXBoxEmpty == false) {
+                isXNumber = IsItNumber("num1", "errorMessage1", "X should be number");
+            }
+
+            var isYBoxEmpty = IsEmpty("num2", "errorMessage2", "y is required");
+            if (isYBoxEmpty == false) {
+                isYNumber = IsItNumber("num2", "errorMessage2", "y should be number");
+            }
+            if (isXNumber == true && isYNumber == true ) {
+                //alert("Do addition now!");
+
+                var xData = parseInt(refTONum1.value);
+                var yData = parseInt(refTONum2.value);
+
+                var result2 = xData * yData;
+                refToresult.innerText = result2;
+            } else {
+                refToresult.innerText = "";
+            }
+
+        }
+
+        function div() {
+            debugger;
+            var refTONum1 = document.getElementById("num1");
+            var refTONum2 = document.getElementById("num2");
+            var refToresult = document.getElementById("result1");
+
+            var xNUM = false;
+            var ynum = false;
+
+            var isXBoxEmpty = IsEmpty("num1", "errorMessage1", "X is required");
+            if (isXBoxEmpty == false) {
+                isXNumber = IsItNumber("num1", "errorMessage1", "X should be number");
+            }
+
+            var isYBoxEmpty = IsEmpty("num2", "errorMessage2", "y is required");
+            if (isYBoxEmpty == false) {
+                isYNumber = IsItNumber("num2", "errorMessage2", "y should be number");
+            }
+            if (isXNumber == true && isYNumber == true ) {
+                //alert("Do addition now!");
+
+                var xData = parseInt(refTONum1.value);
+                var yData = parseInt(refTONum2.value);
+
+                var result2 = xData / yData;
+                refToresult.innerText = result2;
+            } else {
+                refToresult.innerText = "";
+            }
+
+        }
+
+        function IsItNumber(controlid, divid, errorMessage) {
+            var refToControl = document.getElementById(controlid);
+            var refToErrorControl = document.getElementById(divid);
+
+            var IsItNumber = false;
+
+            var isXValueText = isNaN(refToControl.value);
+            if (isXValueText == true) {
+                refToErrorControl.innerText = errorMessage;
+                IsItNumber = false;
+            } else {
+                refToErrorControl.innerText = "";
+                console.log(refToControl.value);
+                IsItNumber = true;
+            }
+
+            return IsItNumber;
+        }
+        function IsEmpty(controlid, errorcontrolid, errorMessage) {
+            var refToTxtBox = document.getElementById(controlid);
+            var refToDivForErrorMessage = document.getElementById(errorcontrolid);
+
+            var dataInTxtBox = refToTxtBox.value;
+
+            var isBoxEmpty = true;
+
+            if (dataInTxtBox != "") {
+                refToDivForErrorMessage.innerText = "";
+                console.log(dataInTxtBox);
+                isBoxEmpty = false;
+            } else {
+                refToDivForErrorMessage.innerText = errorMessage;
+                isBoxEmpty = true;
+            }
+
+            return isBoxEmpty;
+        }
+    </script>
+</body>
+
+</html>
